@@ -1,24 +1,88 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import ParticleBackground from "./ParticleBackground";
+import "./App.css";
+import BackgroundMusic from "./BackgroundMusic";
+import circles from "./Assets/circles.png";
+import Menu from "./Menu";
+import { Container, Row, Col } from "react-bootstrap";
+import { colorMix } from "tsparticles";
+import Map from "./Map";
+import Cards from "./Cards";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <div className="mycontainer">
+        <Menu />
+        <ParticleBackground />
+        <div
+          id="header"
+          style={{
+            position: "absolute",
+            top: "50px",
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <Container>
+            <Row>
+              <Col
+                style={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+                xs={12}
+                md={4}
+                lg={3}
+              >
+                <img src={circles} alt="side-img" className="sideImage" />
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  fontWeight: "bold",
+                  fontFamily: "cursive",
+                  color: "#fff",
+                  justifyContent: "center",
+                }}
+                xs={12}
+                md={4}
+                lg={6}
+              >
+                <p style={{ fontSize: "60px" }}> Shweta </p>
+                <p style={{ fontSize: "30px" }}> weds </p>
+                <p style={{ fontSize: "60px" }}> Gopal </p>
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                xs={12}
+                md={4}
+                lg={3}
+              >
+                <img src={circles} alt="side-img" className="sideImage2" />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
+        <BackgroundMusic />
+      </div>
+
+      <Container>
+        <Row>
+          <Cards />
+        </Row>
+        <Row>
+          <Map />
+        </Row>
+      </Container>
     </div>
   );
 }
